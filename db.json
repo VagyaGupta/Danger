@@ -1,0 +1,36 @@
+{
+  "customers": [
+    {
+      "id": "06a9",
+      "name": "Wooden Wall Mirror",
+      "email": "dhruv@seller.com"
+    }
+  ],
+  "companies": [
+    {
+      "id": "80ba",
+      "name": "ABC",
+      "address": "DElhi"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "446f",
+      "customerName": "Dhruv Gupta",
+      "companyName": "ABC",
+      "items": [
+        {
+          "name": "charger",
+          "price": 200,
+          "quantity": 1
+        },
+        {
+          "name": "charger",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 400
+    }
+  ]
+}

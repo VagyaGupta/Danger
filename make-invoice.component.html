@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Create Invoice</h2>
+  <form (ngSubmit)="onSave()">
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" [(ngModel)]="customerName" name="customerName" required />
+
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" [(ngModel)]="companyName" name="companyName" required />
+
+    <label for="invoiceStatus">Invoice Status:</label>
+    <select id="invoiceStatus" [(ngModel)]="selectedInvoiceStatus" name="invoiceStatus" required>
+      <option *ngFor="let status of invoiceStatuses" [value]="status.code">{{ status.description }}</option>
+    </select>
+
+    <label for="paymentType">Payment Type:</label>
+    <select id="paymentType" [(ngModel)]="selectedPaymentType" name="paymentType" required>
+      <option *ngFor="let type of paymentTypes" [value]="type.code">{{ type.description }}</option>
+    </select>
+
+    <label for="itemCategory">Item Category:</label>
+    <select id="itemCategory" [(ngModel)]="selectedItemCategory" name="itemCategory" required>
+      <option *ngFor="let category of itemCategories" [value]="category.code">{{ category.description }}</option>
+    </select>
+
+    <label for="country">Country:</label>
+    <select id="country" [(ngModel)]="selectedCountry" name="country" required>
+      <option *ngFor="let country of countries" [value]="country.code">{{ country.description }}</option>
+    </select>
+
+    <h3>Items</h3>
+    <div *ngFor="let item of items">
+      <p>{{ item.description }} - {{ item.quantity }} x {{ item.price }} = {{ item.total }}</p>
+    </div>
+    <button type="button" (click)="onAddItem('Item 1', 2, 100)">Add Item 1</button>
+    <button type="button" (click)="onAddItem('Item 2', 1, 200)">Add Item 2</button>
+
+    <h3>Total: {{ totalAmount | currency }}</h3>
+
+    <button type="submit">Save Invoice</button>
+  </form>
+</div>
